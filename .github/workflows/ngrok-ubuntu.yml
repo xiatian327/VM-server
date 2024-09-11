@@ -13,16 +13,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2  # 检出你的代码仓库
+        uses: actions/checkout@v2
 
       - name: Choose mode ngrok (ubuntu)
         env:
-          NGROK_TOKEN: ${{ secrets.NGROK_TOKEN }} 
+          NGROK_TOKEN: ${{ secrets.NGROK_TOKEN }}
           SSH_PASSWORD: ${{ secrets.SSH_PASSWORD }}
         run: |
           MODE=${{ github.event.inputs.mode }}
-          bash ./${MODE}2actions.sh  # 使用相对路径执行脚本
+          bash ./${MODE}2actions.sh
         shell: bash
-        
+
       - name: Sleep
         run: sleep 6h
